@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porsche | Performance Purificada</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Explore máquinas extraordinárias. Conheça modelos Porsche, compare desempenho e personalize seu favorito.">
+  <title>Porsche — Driven by Dreams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data/cars.js" defer></script>
+  <script src="js/modules/catalog.js" defer></script>
+  <script src="js/modules/favorites.js" defer></script>
+  <script src="js/modules/comparator.js" defer></script>
+  <script src="js/modules/video.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-
-    <nav class="navbar" id="navbar">
-        <img src="assets/transferir.jpeg" alt="Porsche" class="nav-logo">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="site-header" id="navbar">
+    <a class="brand" href="#inicio" aria-label="Porsche, início"><img src="assets/transferir.jpeg" alt="Porsche"></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#modelos">Modelos</a><a href="#manifesto">Manifesto</a>
+      <button class="nav-action" id="openCompare">Comparar <span id="compareCount">0</span></button>
+      <button class="nav-action" id="openFavorites">Favoritos <span id="favoriteCount">0</span></button>
     </nav>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>PORSCHE</h1>
-            <p>A alma de um carro esportivo.</p>
-        </div>
-    </section>
-
-    <main id="app">
-        </main>
-
-    <footer class="site-footer">
-        <div class="footer-line"></div>
-        <p><strong>Raphael Nascimento</strong> &copy; 2026</p>
-        <p>Software Engineering Student | Fametro</p>
-    </footer>
-
-    <script src="script.js"></script>
+  </header>
+  <main>
+    <section class="hero" id="inicio"><div class="hero-shade"></div><div class="hero-content reveal"><p class="eyebrow">There is no substitute</p><h1>DRIVEN<br><em>BY DREAMS.</em></h1><p class="hero-copy">Engenharia que desafia limites. Emoção que não precisa de explicação.</p><a class="button button-light" href="#modelos">Explore os modelos <span>↘</span></a></div><div class="hero-bottom"><span>PORSCHE EXPERIENCE</span><span>01 / 03</span></div></section>
+    <section class="intro section-wrap reveal" id="manifesto"><p class="eyebrow">Mais que performance</p><h2>Não construímos apenas carros.<br><span>Criamos motivos para dirigir.</span></h2><p class="intro-copy">Cada detalhe tem um propósito. Cada curva conta uma história. Descubra máquinas feitas para quem sente a estrada de um jeito diferente.</p></section>
+    <section class="catalog section-wrap" id="modelos"><div class="section-heading reveal"><div><p class="eyebrow">A coleção</p><h2>Ícones em movimento<span>.</span></h2></div><p class="catalog-count" id="catalogCount">03 MODELOS</p></div><div class="catalog-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Buscar modelo..." autocomplete="off" aria-label="Buscar modelo"></label><div class="filter-group" id="filterGroup" aria-label="Filtrar modelos"><button class="filter-chip active" data-filter="todos">Todos</button><button class="filter-chip" data-filter="rua">Rua</button><button class="filter-chip" data-filter="hibrido">Híbrido</button><button class="filter-chip" data-filter="pista">Pista</button></div><select id="sortSelect" aria-label="Ordenar modelos"><option value="featured">Em destaque</option><option value="power">Maior potência</option><option value="name">Nome A–Z</option></select></div><div class="car-grid" id="carGrid" aria-live="polite"></div><p class="empty-state" id="emptyState" hidden>Nenhum modelo encontrado. Tente outra busca.</p></section>
+    <section class="statement"><div class="statement-image"></div><div class="statement-content reveal"><p class="eyebrow">A emoção é o destino</p><h2>O extraordinário<br>não aceita <em>atalhos.</em></h2><p>Precisão, coragem e paixão em perfeita harmonia.</p><a href="#modelos" class="text-link">Encontre seu Porsche <span>↗</span></a></div></section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="#inicio">PORSCHE<span>.</span></a><p>Projeto independente de estudo e portfólio. Não afiliado à Dr. Ing. h.c. F. Porsche AG.</p><div class="footer-bottom"><span>© <span id="year"></span> Raphael Nascimento</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+  <dialog class="modal" id="detailModal" aria-labelledby="detailTitle"><button class="modal-close" data-close aria-label="Fechar">×</button><div id="detailContent"></div></dialog>
+  <dialog class="modal utility-modal" id="compareModal" aria-labelledby="compareTitle"><button class="modal-close" data-close aria-label="Fechar">×</button><p class="eyebrow">Lado a lado</p><h2 id="compareTitle">Comparador<span>.</span></h2><div id="compareContent"></div></dialog>
+  <dialog class="modal utility-modal" id="favoritesModal" aria-labelledby="favoritesTitle"><button class="modal-close" data-close aria-label="Fechar">×</button><p class="eyebrow">Sua garagem</p><h2 id="favoritesTitle">Favoritos<span>.</span></h2><div id="favoritesContent"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

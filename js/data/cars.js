@@ -1,0 +1,6 @@
+/* Dados centralizados dos veículos. Valores mantidos conforme o material original do projeto. */
+window.PORSCHE_CARS = [
+  { id: "gt3-rs", name: "911 GT3 RS", family: "911", category: "rua", categoryLabel: "Motorsport", motor: "4.0L Boxer 6", power: 525, powerLabel: "525 CV", acceleration: "3,2 s", speed: "3.2s", img: "assets/gt3.jpn.jpeg", youtube: "2RS07NJ6boQ", description: "Uma máquina desenvolvida com DNA de competição, aerodinâmica extrema e engenharia focada na precisão em pista." },
+  { id: "918-spyder", name: "918 Spyder", family: "Hybrid", category: "hibrido", categoryLabel: "Híbrido", motor: "V8 Híbrido", power: 887, powerLabel: "887 CV", acceleration: "2,5 s", speed: "2.5s", img: "assets/spyder.jpn.jpeg", youtube: "N_znJtmBWPE", description: "A combinação de um motor V8 com tecnologia elétrica em um superesportivo híbrido extraordinário." },
+  { id: "911-rsr", name: "911 RSR", family: "Motorsport", category: "pista", categoryLabel: "Competição", motor: "4.2L Boxer", power: 515, powerLabel: "515 CV", acceleration: "Pista", speed: "Performance Track", img: "assets/rsr.jpn.jpeg", youtube: "Zey78q0fbmM", description: "Um ícone de endurance criado para competir, com foco absoluto em desempenho e resistência." }
+];
